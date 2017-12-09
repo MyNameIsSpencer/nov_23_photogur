@@ -1,0 +1,40 @@
+
+<h1> Most recent pictures </h1>
+
+<%= link_to("New Picture", "/pictures/new")%>
+
+<ul>
+  <% @most_recent_pictures.each do |picture| %>
+  <p><%= picture.title %>, <br> <%= picture.artist %> <br> <%= picture.created_at%></p>
+  <%= link_to(image_tag(picture.url), "/pictures/#{picture.id}") %><br>
+  <%= link_to "Picture Profile", "/pictures/#{picture.id}" %><br><br><br>
+  <% end %>
+</ul>
+
+
+<h1> Old Pictures (<%= @old_pictures.length %>)</h1>
+<ul>
+  <% @old_pictures.each do |picture| %>
+  <p><%= picture.title %>, <br> <%= picture.artist %>, <br> <%= picture.created_at %></p>
+  <%= link_to(image_tag(picture.url), "/pictures/#{picture.id}") %><br>
+  <%= link_to "Picture Profile", "/pictures/#{picture.id}" %><br><br><br>
+  <% end %>
+</ul>
+
+<h1> Pictures Created This Year (<%= @jin_nian_pictures.length %>)</h1>
+<ul>
+  <% @jin_nian_pictures.each do |picture| %>
+  <p><%= picture.title %>, <br> <%= picture.artist %>, <br> <%= picture.created_at %></p>
+  <%= link_to(image_tag(picture.url), "/pictures/#{picture.id}") %><br>
+  <%= link_to "Picture Profile", "/pictures/#{picture.id}" %><br><br><br>
+  <% end %>
+</ul>
+
+
+
+
+<h1> All Pictures (<%= @pictures.length %>)</h1>
+<% @pictures.each do |picture| %>
+  <p><%= picture.title %>, <br> <%= picture.artist %><br> <%= picture.created_at%></p>
+  <%= link_to(image_tag(picture.url), "/pictures/#{picture.id}") %>
+<% end %>
